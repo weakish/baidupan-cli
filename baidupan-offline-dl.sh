@@ -7,12 +7,14 @@
 
 ## Requires:
 #
-# - jq
+# - [jq](http://stedolan.github.io/jq/)
 # - curl
 
 ## Usage:
 #
 #     BaiduPanToken=1234aoeu BaiduPanPath='/apps/appname/your-dir' ./baidupan-offline-dl urls.list
+#
+#  `urls.list` is a text file, containing urls to download. with one url per line.
 
 Baidupan_api_base='https://pcs.baidu.com/rest/2.0/pcs/services/cloud_dl?method='
 URL_list=$1

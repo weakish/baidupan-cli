@@ -26,7 +26,7 @@ while true; do
     curl -X POST -k -L -d "" "${Baidupan_api_base}add_task&access_token=$BaiduPanToken&save_path=$BaiduPanPath/`basename $download_source`&source_url=$download_source" |
     jq '.'
     echo 'Downloading' `basename $download_source` 'to BaiduPan'
-    sed -i 1p $URL_list
+    sed -i 1d $URL_list
   else
     sleep 6m
   fi

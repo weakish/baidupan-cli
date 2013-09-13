@@ -15,10 +15,13 @@
 #     BaiduPanToken=1234aoeu BaiduPanPath='/apps/appname/your-dir' ./baidupan-offline-dl urls.list
 #
 #  `urls.list` is a text file, containing urls to download. with one url per line.
+#  Note that `urls.list` will be modified by this script, so backup it first.
 
 Baidupan_api_base='https://pcs.baidu.com/rest/2.0/pcs/services/cloud_dl?method='
 URL_list=$1
 
+# backup original url list file
+cp $URL_list $URL_list.original
 while true; do
   current_downloads=`curl -s -X POST -k -L -d "" "${Baidupan_api_base}list_task&access_token=$BaiduPanToken" | jq '.total'`
   if [ $current_downloads -lt 5 ] ; then
